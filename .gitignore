@@ -30,11 +30,16 @@ debug.log
 .DS_Store
 
 # Backend build artifacts
-server/dist/
-server/coverage/
-server/tmp/
-server/.cache/
-server/*.tsbuildinfo
+# server/dist/
+# server/coverage/
+# server/tmp/
+# server/.cache/
+# server/*.tsbuildinfo
+
+# Ensure server directory is not ignored
+doc/
+!.gitkeep
+server/
 
 # Frontend build artifacts
 client/.next/
