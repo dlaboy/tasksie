@@ -39,7 +39,7 @@ debug.log
 # Ensure server directory is not ignored
 doc/
 !.gitkeep
-server/
+# server/
 
 # Frontend build artifacts
 client/.next/
@@ -49,8 +49,8 @@ client/.vercel/
 client/.turbo/
 
 # Testing
-server/junit.xml
-server/coverage/
+# server/junit.xml
+# server/coverage/
 client/junit.xml
 client/coverage/
 
