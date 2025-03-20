@@ -18,17 +18,23 @@ export default function Dashboard() {
   const router = useRouter()
   const { toast } = useToast()
 
+  // useEffect(()=>{
+  //   console.log("Arrived to dashboard")
+  // },[])
   useEffect(() => {
     if (!user) {
+
       router.push("/login")
-      return
+      return 
     }
 
     const loadTasks = async () => {
       try {
         const data = await fetchTasks()
+        console.log(data)
         setTasks(data)
       } catch (error) {
+        
         toast({
           title: "Error",
           description: "Failed to load tasks. Please try again.",

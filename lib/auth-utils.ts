@@ -10,14 +10,41 @@ export function getAuthToken(request: Request): string | null {
   return authHeader.split(" ")[1]
 }
 
+import jwt from "jsonwebtoken";
+
 // Verify JWT token and return decoded payload
-export function verifyToken(token: string) {
-  try {
-    return verify(token, process.env.JWT_SECRET || "your-secret-key")
-  } catch (error) {
-    return null
-  }
+// export function verifyToken(token: string) {
+//   try {
+//     return jwt.verify(token, process.env.JWT_SECRET || "your-secret-key")
+//   } catch (error) {
+//     console.log(error)
+//     return null
+//   }
+// }
+import { jwtVerify, JWTPayload } from "jose";
+
+/**
+ * Verifies a JWT token and returns the decoded payload.
+ * Works in Edge Runtime.
+ * @param token - The JWT token to verify.
+ * @returns Decoded JWT payload if valid, otherwise null.
+ */
+export async function verifyToken(token: string): Promise<JWTPayload | null> {
+    try {
+        if (!process.env.JWT_SECRET) {
+            throw new Error("JWT_SECRET is missing from environment variables.");
+        }
+
+        const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+        const { payload } = await jwtVerify(token, secret);
+        
+        return payload; // Successfully verified token
+    } catch (error) {
+        console.error("JWT Verification Failed:", error);
+        return null;
+    }
 }
+
 
 // Middleware to check if user is authenticated
 export function isAuthenticated(handler: Function) {

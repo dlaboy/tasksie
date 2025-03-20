@@ -23,10 +23,11 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-
     try {
       await login(email, password)
+      console.log("Login Successfull")
       router.push("/dashboard")
+       
     } catch (error) {
       toast({
         title: "Authentication Error",

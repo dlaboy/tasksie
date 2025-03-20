@@ -1,1 +1,6 @@
-{}
+{
+  "/tasks/new/page": "app/tasks/new/page.js",
+  "/tasks/[id]/edit/page": "app/tasks/[id]/edit/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/login/page": "app/login/page.js"
+}
