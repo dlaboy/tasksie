@@ -12,11 +12,11 @@ async function taskTest(title,description) {
   try {
     // Navigate to login page
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
-    await console.log("Arrived to login page...")
+    // await console.log("Arrived to login page...")
 
     // Wait until the email input is present
     await driver.wait(until.elementLocated(By.id('email')), 5000);
-    console.log("Login form detected...")
+    // console.log("Login form detected...")
 
 
     // Fill in credentials
@@ -24,14 +24,14 @@ async function taskTest(title,description) {
     await sleep(1000)
     await driver.findElement(By.id('password')).sendKeys('Diego');
     await sleep(1000)
-    console.log("Entered credentials...")
+    // console.log("Entered credentials...")
     
 
 
     // Click login button
     await driver.findElement(By.css('button[type="submit"]')).click();
     await sleep(1000)
-    console.log("Login button pressed...")
+    // console.log("Login button pressed...")
 
     
 
@@ -39,38 +39,38 @@ async function taskTest(title,description) {
     // Wait for dashboard or expected redirect
     await driver.wait(until.urlContains('/dashboard'), 5000); // Adjust to match your app
     await sleep(1000)
-    console.log("Login Successfull, seeing dashboard page...")
+    // console.log("Login Successfull, seeing dashboard page...")
 
 
     await driver.findElement(By.id('new_task')).click();
     await sleep(1000)
-    console.log("Arrived to new task page...")
+    // console.log("Arrived to new task page...")
 
 
     await driver.findElement(By.id('title')).sendKeys(title);
     await sleep(1000)
-    console.log("Entered title...")
+    // console.log("Entered title...")
 
     await driver.findElement(By.id('description')).sendKeys(description);
     await sleep(1000)
-    console.log("Entered description...")
+    // console.log("Entered description...")
 
 
     // Click login button
     await driver.findElement(By.css('button[type="submit"]')).click();
     await sleep(5000);
-    console.log("Created task...")
+    // console.log("Created task...")
 
 
     // Delete task created
     await driver.findElement(By.id('delete_modal')).click();
     await sleep(5000);
-    console.log("Am I sure I want to delete this task? Yes...")
+    // console.log("Am I sure I want to delete this task? Yes...")
 
 
     await driver.findElement(By.id('delete_button')).click();
     await sleep(5000);
-    console.log("Task deleted")
+    // console.log("Task deleted")
 
 
     // console.log('✅ Login successful!');

@@ -55,7 +55,7 @@ async function registerTest(name,email,password) {
     await sleep(5000)
 
 
-    console.log('✅ Login successful!');
+    // console.log('✅ Login successful!');
   } catch (error) {
     console.error('❌ Login failed:', error);
   } finally {

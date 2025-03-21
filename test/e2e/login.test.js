@@ -34,7 +34,6 @@ async function loginTest(email,password) {
     await sleep(1000)
 
 
-    console.log('✅ Login successful!');
   } catch (error) {
     console.error('❌ Login failed:', error);
   } finally {
