@@ -63,6 +63,10 @@ async function registerTest(name,email,password) {
     await driver.quit();
   }
 }
+describe('Login E2E Test', () => {
+  it('should log in successfully with valid credentials', async () => {
+    await registerTest('Janet','perezjanet6858@yahoo.com','Janet123');
+  });
+});
 
-registerTest('Janet','perezjanet6858@yahoo.com','Janet123');
 // registerTest('Diego','laboy.swe@gmail.com','Diego');
