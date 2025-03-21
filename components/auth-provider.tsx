@@ -28,9 +28,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check if user is logged in on initial load
     const token = localStorage.getItem("token")
-
+    // console.log("User did something")
     if (token) {
       fetchUserProfile(token)
+
     } else {
       setIsLoading(false)
     }
@@ -41,13 +42,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const response = await fetch("/api/auth/me", {
         headers: {
           Authorization: `Bearer ${token}`,
-        },
+        }
       })
 
+      console.log("response inside fetch",response)
+
       if (response.ok) {
+        console.log("Response ok")
         const userData = await response.json()
         setUser(userData)
       } else {
+        console.log("Response not ok")
+
         // Token is invalid or expired
         localStorage.removeItem("token")
       }
@@ -64,18 +70,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+
+        
       },
       body: JSON.stringify({ email, password }),
+
+
     })
 
     if (!response.ok) {
+
       const error = await response.json()
       throw new Error(error.error || "Login failed")
     }
+  
+   
 
+    
     const data = await response.json()
+    console.log("Data",data.user)
+    // console.log("User auth",data.user)
     localStorage.setItem("token", data.token)
     setUser(data.user)
+    window.location.reload()
   }
 
   const register = async (name: string, email: string, password: string) => {
@@ -97,9 +114,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(data.user)
   }
 
-  const logout = () => {
+  const logout = async () => {
+
+    const response = await fetch("/api/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      
+    })
+
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.error || "Registration failed")
+    }
     localStorage.removeItem("token")
     setUser(null)
+    window.location.reload()
+
   }
 
   return <AuthContext.Provider value={{ user, login, register, logout, isLoading }}>{children}</AuthContext.Provider>

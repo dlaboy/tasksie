@@ -23,10 +23,11 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-
     try {
       await login(email, password)
+      console.log("Login Successfull")
       router.push("/dashboard")
+       
     } catch (error) {
       toast({
         title: "Authentication Error",
@@ -75,7 +76,7 @@ export default function LoginPage() {
             </Button>
             <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
-              <Link href="/register" className="underline">
+              <Link id="register" href="/register" className="underline">
                 Register
               </Link>
             </div>
