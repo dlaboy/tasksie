@@ -116,6 +116,7 @@ export function TaskList({ tasks, onTasksChange }: TaskListProps) {
               Edit
             </Button>
             <Button
+              id="delete_modal"
               variant="outline"
               size="sm"
               onClick={() => handleDeleteClick(task.id)}
@@ -139,6 +140,7 @@ export function TaskList({ tasks, onTasksChange }: TaskListProps) {
           <AlertDialogFooter>
             <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
             <AlertDialogAction
+              id="delete_button"
               onClick={handleDeleteConfirm}
               disabled={isDeleting}
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"

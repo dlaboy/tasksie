@@ -62,11 +62,11 @@ export default function Dashboard() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Task Dashboard</h1>
         <div className="flex gap-2">
-          <Button onClick={handleCreateTask} className="flex items-center gap-2">
+          <Button id="new_task" onClick={handleCreateTask} className="flex items-center gap-2">
             <Plus size={16} />
             New Task
           </Button>
-          <Button variant="outline" onClick={handleLogout} className="flex items-center gap-2">
+          <Button  id="logout" variant="outline" onClick={handleLogout} className="flex items-center gap-2">
             <LogOut size={16} />
             Logout
           </Button>

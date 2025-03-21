@@ -1,6 +1,7 @@
 {
-  "/tasks/new/page": "app/tasks/new/page.js",
-  "/tasks/[id]/edit/page": "app/tasks/[id]/edit/page.js",
+  "/register/page": "app/register/page.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
   "/dashboard/page": "app/dashboard/page.js",
-  "/login/page": "app/login/page.js"
+  "/tasks/new/page": "app/tasks/new/page.js"
 }
