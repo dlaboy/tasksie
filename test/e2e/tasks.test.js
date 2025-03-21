@@ -11,6 +11,7 @@ async function taskTest(title,description) {
 
   try {
     // Navigate to login page
+    sleep(5000)
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
     // await console.log("Arrived to login page...")
 
