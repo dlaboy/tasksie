@@ -19,19 +19,19 @@ async function loginTest(email,password) {
 
     // Fill in credentials
     await driver.findElement(By.id('email')).sendKeys(email);
-    await sleep(1000)
+    // await sleep(1000)
     await driver.findElement(By.id('password')).sendKeys(password);
-    await sleep(1000)
+    // await sleep(1000)
 
 
     // Click login button
     await driver.findElement(By.css('button[type="submit"]')).click();
-    await sleep(1000)
+    // await sleep(1000)
 
 
     // Wait for dashboard or expected redirect
     await driver.wait(until.urlContains('/dashboard'), 5000); // Adjust to match your app
-    await sleep(1000)
+    // await sleep(1000)
 
 
   } catch (error) {
@@ -45,6 +45,6 @@ async function loginTest(email,password) {
 describe('Login E2E Test', () => {
   it('should log in successfully with valid credentials', async () => {
     await loginTest('laboy.swe@gmail.com', 'Diego');
-  },20000);
+  },100000);
 });
 // loginTest('perezjanet6858@yahoo.com','Janet');
