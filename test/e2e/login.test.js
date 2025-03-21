@@ -45,6 +45,6 @@ async function loginTest(email,password) {
 describe('Login E2E Test', () => {
   it('should log in successfully with valid credentials', async () => {
     await loginTest('laboy.swe@gmail.com', 'Diego');
-  });
+  },20000);
 });
 // loginTest('perezjanet6858@yahoo.com','Janet');

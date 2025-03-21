@@ -85,7 +85,7 @@ async function taskTest(title,description) {
 describe('Login E2E Test', () => {
   it('should log in successfully with valid credentials', async () => {
     await taskTest('Selenium Tasks','Task');
-  });
+  },20000);
 });
 
 
