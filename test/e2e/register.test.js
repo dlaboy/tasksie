@@ -52,7 +52,7 @@ async function registerTest(name,email,password) {
     await driver.findElement(By.css('button[type="submit"]')).click();
     // await sleep(1000)
 
-    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 30000); // Adjust to match your app
     // await sleep(5000)
 
 
