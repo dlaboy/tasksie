@@ -31,7 +31,7 @@ async function loginTest(email,password) {
 
 
     // Wait for dashboard or expected redirect
-    await driver.wait(until.urlContains('/dashboard'), 30000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(1000)
 
 

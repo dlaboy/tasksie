@@ -38,7 +38,7 @@ async function taskTest(title,description) {
 
 
     // Wait for dashboard or expected redirect
-    await driver.wait(until.urlContains('/dashboard'), 30000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(1000)
     // console.log("Login Successfull, seeing dashboard page...")
 
