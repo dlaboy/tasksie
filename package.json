@@ -8,7 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "test:login": "jest /test/e2e/login.test.js",
+    "test:register": "jest /test/e2e/register.test.js",
+    "test:tasks": "jest /test/e2e/tasks.test.js ",
     "test:e2e": "start-server-and-test dev http://localhost:3000/login jest",
+    "test:e2e:login": "start-server-and-test dev http://localhost:3000/login test:login",
+    "test:e2e:register": "start-server-and-test dev http://localhost:3000/login test:register",
+    "test:e2e:tasks": "start-server-and-test dev http://localhost:3000/login test:tasks",
     "start:all": "cd .. && cd server && npm run start:dev & PID=$! && sleep 10 && kill -SIGINT $PID && cd .. && cd client && npm run dev"
 
   },
