@@ -12,6 +12,7 @@ async function registerTest(name,email,password) {
 
   try {
     // Navigate to login page
+    sleep(5000)
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
     // await sleep(5000)
 

@@ -12,6 +12,7 @@ async function loginTest(email,password) {
 
   try {
     // Navigate to login page
+    sleep(5000)
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
 
     // Wait until the email input is present
