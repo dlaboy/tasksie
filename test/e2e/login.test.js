@@ -7,7 +7,7 @@ const { default: createDriver } = require('./driver');
 
 async function loginTest(email,password) {
   // Create a new browser instance (Chrome)
-  const driver = await createDriver({headless:true});
+  const driver = await createDriver({headless:false});
 
 
   try {
