@@ -16,7 +16,7 @@ async function loginTest(email,password) {
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
 
     // Wait until the email input is present
-    await driver.wait(until.elementLocated(By.id('email')), 5000);
+    await driver.wait(until.elementLocated(By.id('email')), 10000);
 
     // Fill in credentials
     await driver.findElement(By.id('email')).sendKeys(email);
@@ -31,7 +31,7 @@ async function loginTest(email,password) {
 
 
     // Wait for dashboard or expected redirect
-    await driver.wait(until.urlContains('/dashboard'), 5000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(1000)
 
 

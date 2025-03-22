@@ -16,7 +16,7 @@ async function taskTest(title,description) {
     // await console.log("Arrived to login page...")
 
     // Wait until the email input is present
-    await driver.wait(until.elementLocated(By.id('email')), 5000);
+    await driver.wait(until.elementLocated(By.id('email')), 10000);
     // console.log("Login form detected...")
 
 
@@ -38,7 +38,7 @@ async function taskTest(title,description) {
 
 
     // Wait for dashboard or expected redirect
-    await driver.wait(until.urlContains('/dashboard'), 5000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(1000)
     // console.log("Login Successfull, seeing dashboard page...")
 

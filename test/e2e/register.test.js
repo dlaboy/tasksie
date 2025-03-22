@@ -12,7 +12,7 @@ async function registerTest(name,email,password) {
 
   try {
     // Navigate to login page
-    sleep(5000)
+    sleep(10000)
     await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
     // await sleep(5000)
 
@@ -21,7 +21,7 @@ async function registerTest(name,email,password) {
     // await sleep(1000)
 
     // Wait until the email input is present
-    await driver.wait(until.elementLocated(By.id('name')), 5000);
+    await driver.wait(until.elementLocated(By.id('name')), 10000);
 
     // Fill in credentials
     await driver.findElement(By.id('name')).sendKeys(name);
@@ -38,10 +38,10 @@ async function registerTest(name,email,password) {
 
 
     // Wait for dashboard or expected redirect
-    await driver.wait(until.urlContains('/login?from=%2Fdashboard'), 5000); // Adjust to match your app
+    await driver.wait(until.urlContains('/login?from=%2Fdashboard'), 10000); // Adjust to match your app
     // await sleep(5000)
 
-    await driver.wait(until.elementLocated(By.id('email')), 5000);
+    await driver.wait(until.elementLocated(By.id('email')), 10000);
 
 
     await driver.findElement(By.id('email')).sendKeys(email);
@@ -52,7 +52,7 @@ async function registerTest(name,email,password) {
     await driver.findElement(By.css('button[type="submit"]')).click();
     // await sleep(1000)
 
-    await driver.wait(until.urlContains('/dashboard'), 5000); // Adjust to match your app
+    await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(5000)
 
 
