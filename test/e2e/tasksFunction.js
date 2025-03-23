@@ -9,36 +9,53 @@ async function taskTest(title,description) {
 
 
   try {
-    // Navigate to login page
-    await driver.get('http://localhost:3000/login'); // 🔁 Replace with your login page URL
-    // await console.log("Arrived to login page...")
+    await driver.get('http://localhost:3000/login');
 
-    // Wait until the email input is present
+    await driver.findElement(By.id('register')).click();
+    await driver.wait(until.elementLocated(By.id('name')), 10000);
+    if (name !== ""){
+        await driver.findElement(By.id('name')).sendKeys("Juan");
+    }
+    if (email !== ""){
+        await driver.findElement(By.id('email')).sendKeys("Juanpablo@gmail.com");
+    }
+    if (password !== ""){
+        await driver.findElement(By.id('password')).sendKeys("JP123");
+    }
+
+    await driver.findElement(By.css('button[type="submit"]')).click();
+    await sleep(5000)
+
+
+    await driver.wait(until.urlContains('/login?from=%2Fdashboard'), 10000);
+
+// Wait until the email input is present
     await driver.wait(until.elementLocated(By.id('email')), 10000);
-    // console.log("Login form detected...")
 
 
     // Fill in credentials
-    await driver.findElement(By.id('email')).sendKeys('laboy.swe@gmail.com');
-    // await sleep(1000)
-    await driver.findElement(By.id('password')).sendKeys('Diego');
-    // await sleep(1000)
-    // console.log("Entered credentials...")
-    
+    if (email !== ""){
+        await driver.findElement(By.id('email')).sendKeys(email);
+        await sleep(1000)
+        
+    }
+    if (password !== ""){
+        await driver.findElement(By.id('password')).sendKeys(password);
+        await sleep(1000)
 
+    }
+    // await sleep(1000)
+    // await sleep(1000)
 
     // Click login button
     await driver.findElement(By.css('button[type="submit"]')).click();
-    // await sleep(1000)
-    // console.log("Login button pressed...")
-
-    
+    await sleep(5000)
 
 
     // Wait for dashboard or expected redirect
     await driver.wait(until.urlContains('/dashboard'), 10000); // Adjust to match your app
     // await sleep(1000)
-    // console.log("Login Successfull, seeing dashboard page...")
+
 
 
     await driver.findElement(By.id('new_task')).click();
