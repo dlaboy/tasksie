@@ -11,39 +11,17 @@ async function taskTest(title,description) {
   try {
     await driver.get('http://localhost:3000/login');
 
-    await driver.findElement(By.id('register')).click();
-    await driver.wait(until.elementLocated(By.id('name')), 10000);
-    if (name !== ""){
-        await driver.findElement(By.id('name')).sendKeys("Juan");
-    }
-    if (email !== ""){
-        await driver.findElement(By.id('email')).sendKeys("Juanpablo@gmail.com");
-    }
-    if (password !== ""){
-        await driver.findElement(By.id('password')).sendKeys("JP123");
-    }
-
-    await driver.findElement(By.css('button[type="submit"]')).click();
-    await sleep(5000)
-
-
-    await driver.wait(until.urlContains('/login?from=%2Fdashboard'), 10000);
-
 // Wait until the email input is present
     await driver.wait(until.elementLocated(By.id('email')), 10000);
 
 
     // Fill in credentials
-    if (email !== ""){
-        await driver.findElement(By.id('email')).sendKeys(email);
+        await driver.findElement(By.id('email')).sendKeys("Juanpablo@gmail.com");
         await sleep(1000)
         
-    }
-    if (password !== ""){
-        await driver.findElement(By.id('password')).sendKeys(password);
+        await driver.findElement(By.id('password')).sendKeys("JP123");
         await sleep(1000)
 
-    }
     // await sleep(1000)
     // await sleep(1000)
 
@@ -74,20 +52,20 @@ async function taskTest(title,description) {
 
     // Click login button
     await driver.findElement(By.css('button[type="submit"]')).click();
-    await sleep(1000);
+    await sleep(5000);
     // console.log("Created task...")
 
 
     // Delete task created
     await driver.findElement(By.id('delete_modal')).click();
-    await sleep(1000)
+    await sleep(3000)
 
     // await sleep(5000);
     // console.log("Am I sure I want to delete this task? Yes...")
 
 
     await driver.findElement(By.id('delete_button')).click();
-    await sleep(1000)
+    await sleep(3000)
     // await sleep(5000);
     // console.log("Task deleted")
 

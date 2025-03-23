@@ -1,6 +1,11 @@
 {
-  "/login/page": "app/login/page.js",
   "/register/page": "app/register/page.js",
+  "/login/page": "app/login/page.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/tasks/route": "app/api/tasks/route.js",
+  "/api/tasks/[id]/route": "app/api/tasks/[id]/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/tasks/new/page": "app/tasks/new/page.js",
-  "/dashboard/page": "app/dashboard/page.js"
+  "/api/auth/login/route": "app/api/auth/login/route.js"
 }
