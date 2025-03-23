@@ -46,6 +46,7 @@ export async function POST(request: Request) {
   try {
     const { email, password } = await request.json()
 
+
     const users = await getUsers(); // Fetches if needed
     
 
@@ -82,7 +83,8 @@ export async function POST(request: Request) {
     const token = sign({ userId: user.id, email: user.email }, process.env.JWT_SECRET || "your-secret-key", {
       expiresIn: "24h",
     })
-          
+          console.log("REQUEST",request)
+
           const content = { user: JSON.stringify(user)}
           const loginUser = await fetch(`${URL}/auth/login`, {
             method: "POST",
