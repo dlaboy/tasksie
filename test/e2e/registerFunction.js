@@ -3,7 +3,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const { default: createDriver } = require('./driver');
 
 async function registerTest(name, email, password) {
-  const driver = await createDriver({ headless: true });
+  const driver = await createDriver({ headless: false });
 
   try {
     await driver.get('http://localhost:3000/login');

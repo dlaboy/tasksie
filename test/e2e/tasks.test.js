@@ -31,6 +31,12 @@ describe('Tasks E2E Test', () => {
   },20000);
 });
 
+describe('Tasks E2E Test', () => {
+  it('Delete Task Succesfully', async () => {
+    await deleteTest();
+  },20000);
+});
+
 
 // taskTest('','Task');
 // loginTest('perezjanet6858@yahoo.com','Janet');
